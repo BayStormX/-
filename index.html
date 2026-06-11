@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ແບບທົດສອບ ✨</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ໜ້າຫຼັກ: ເລືອກວິຊາ -->
+  <div id="page-home" class="page active">
+    <div class="home-container">
+      <div class="home-header">
+        <div class="logo-icon">📚</div>
+        <h1>ແບບທົດສອບ</h1>
+        <p class="subtitle">ເລືອກວິຊາທີ່ຢາກທົດສອບເລີຍ~ 🌸</p>
+      </div>
+      <div class="subject-grid" id="subject-grid">
+        <!-- ສ້າງ dynamic ຈາກ JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ໜ້າທຳຄຳຖາມ -->
+  <div id="page-quiz" class="page">
+    <div class="quiz-container">
+      <div class="quiz-top-bar">
+        <button class="btn-back" onclick="goHome()">← ກັບຄືນ</button>
+        <span class="subject-label" id="quiz-subject-label"></span>
+        <span class="question-counter" id="question-counter">1 / 40</span>
+      </div>
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <div class="question-card" id="question-card">
+        <div class="question-number" id="q-number">ຂໍ້ທີ 1</div>
+        <div class="question-text" id="q-text"></div>
+        <div class="choices" id="choices-container"></div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn-nav" id="btn-prev" onclick="prevQuestion()">◀ ກ່ອນ</button>
+        <button class="btn-nav btn-primary" id="btn-next" onclick="nextQuestion()">ຕໍ່ໄປ ▶</button>
+        <button class="btn-nav btn-finish" id="btn-finish" onclick="finishQuiz()" style="display:none">ສົ່ງຄຳຕອບ 🎉</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ໜ້າສະຫຼຸບຜົນ -->
+  <div id="page-result" class="page">
+    <div class="result-container">
+      <div class="result-header">
+        <div id="result-emoji" class="result-emoji">🎉</div>
+        <h2>ຜົນການທົດສອບ</h2>
+        <div class="score-box">
+          <span id="result-score" class="score-big">0</span>
+          <span class="score-label">ຄະແນນ</span>
+        </div>
+        <p id="result-msg" class="result-msg"></p>
+      </div>
+
+      <div class="result-summary">
+        <div class="summary-stat correct-stat">
+          <span class="stat-icon">✅</span>
+          <span class="stat-num" id="stat-correct">0</span>
+          <span class="stat-label">ຖືກ</span>
+        </div>
+        <div class="summary-stat wrong-stat">
+          <span class="stat-icon">❌</span>
+          <span class="stat-num" id="stat-wrong">0</span>
+          <span class="stat-label">ຜິດ</span>
+        </div>
+        <div class="summary-stat skip-stat">
+          <span class="stat-icon">⬜</span>
+          <span class="stat-num" id="stat-skip">0</span>
+          <span class="stat-label">ຍັງບໍ່ຕອບ</span>
+        </div>
+      </div>
+
+      <!-- ລາຍການຂໍ້ຜິດ -->
+      <div class="wrong-list-section" id="wrong-list-section">
+        <h3>📝 ຂໍ້ທີ່ຕອບຜິດ / ຍັງບໍ່ຕອບ</h3>
+        <div id="wrong-list"></div>
+      </div>
+
+      <!-- ເສລຍ -->
+      <div class="answer-key-section">
+        <button class="btn-toggle-key" onclick="toggleAnswerKey()">
+          🔑 ເບິ່ງເສລຍຄຳຕອບທັງໝົດ
+        </button>
+        <div id="answer-key-list" class="answer-key-list" style="display:none"></div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn-action btn-retry" onclick="retryQuiz()">🔄 ທຳອີກຄັ້ງ</button>
+        <button class="btn-action btn-home" onclick="goHome()">🏠 ກັບໜ້າຫຼັກ</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
