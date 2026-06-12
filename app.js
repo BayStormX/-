@@ -39,9 +39,38 @@ function goHome() {
   }
 }
 
+// ===== SHUFFLE HELPERS =====
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ສ້າງຄຳຖາມສະບັບສຸ່ມ (ສຸ່ມລຳດັບຂໍ້ + ສຸ່ມລຳດັບຕົວເລືອກ)
+function buildShuffledQuestions(original) {
+  const shuffledQs = shuffleArray(original);
+  return shuffledQs.map(q => {
+    const order = shuffleArray([0, 1, 2, 3]); // ລຳດັບ index ເກົ່າຫຼັງສຸ່ມ
+    return {
+      q: q.q,
+      choices: order.map(i => q.choices[i]),
+      answer: order.indexOf(q.answer)
+    };
+  });
+}
+
 // ===== QUIZ =====
 function startQuiz(subjectId) {
-  currentSubject = SUBJECTS.find(s => s.id === subjectId);
+  const subject = SUBJECTS.find(s => s.id === subjectId);
+  currentSubject = {
+    id: subject.id,
+    name: subject.name,
+    icon: subject.icon,
+    questions: buildShuffledQuestions(subject.questions)
+  };
   currentIndex = 0;
   userAnswers = new Array(currentSubject.questions.length).fill(null);
 
