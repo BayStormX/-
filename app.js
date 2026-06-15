@@ -86,7 +86,10 @@ function renderQuestion() {
   // Counter & progress
   document.getElementById('question-counter').textContent = `${currentIndex + 1} / ${total}`;
   document.getElementById('q-number').textContent = `ຂໍ້ທີ ${currentIndex + 1}`;
-  document.getElementById('q-text').textContent = q.q;
+  
+  // แก้ไขจุดนี้เป็น .innerHTML เพื่อรองรับแท็ก <sub> และ <sup> เรียบร้อยครับ
+  document.getElementById('q-text').innerHTML = q.q; 
+  
   document.getElementById('progress-bar').style.width = `${((currentIndex + 1) / total) * 100}%`;
 
   // Choices
