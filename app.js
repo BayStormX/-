@@ -160,10 +160,10 @@ function showResult() {
   document.getElementById('stat-skip').textContent = skipped;
 
   let emoji = '🎉', msg = '';
-  if (pct >= 90)      { emoji = '🏆'; msg = 'ເກັ່ງຫຼາຍ! ດີຍອດ~ 💙'; }
-  else if (pct >= 70) { emoji = '😊'; msg = 'ຜ່ານແລ້ວ ດີຫຼາຍ~ ສູ້ໂລດ! 🌸'; }
-  else if (pct >= 50) { emoji = '😅'; msg = 'ພໍຜ່ານ... ໄຕ່ຕອງອີກໜ່ອຍ 📖'; }
-  else                { emoji = '😢'; msg = 'ຍັງບໍ່ທັນຜ່ານ ລອງໃໝ່ໄດ້ເລີຍ 💪'; }
+  if (pct >= 90)      { emoji = '🏆'; msg = 'ເກັ່ງຫຼາຍ!~ 💙'; }
+  else if (pct >= 70) { emoji = '😊'; msg = 'ຜ່ານແລ້ວ ດີຫຼາຍ~! 🌸'; }
+  else if (pct >= 50) { emoji = '😅'; msg = 'ພໍຜ່ານ... ໄຕ່ຕອງອີກນິດ 📖'; }
+  else                { emoji = '😢'; msg = 'ຍັງບໍ່ທັນຜ່ານ ລອງໃໝ່ 💪'; }
 
   document.getElementById('result-emoji').textContent = emoji;
   document.getElementById('result-msg').textContent = msg;
